@@ -1,8 +1,8 @@
 /* ── Enhanced listing cards (targeting .quarto-post) ── */
 .quarto-post {
   position: relative;
-  border: 1px solid #d1d5db;
-  border-left: 4px solid #3b82f6;          /* accent bar (blue) */
+  border: 1px solid #DDE1E6;
+  border-left: 4px solid var(--bs-primary);   /* accent bar — now hardwood orange */
   border-radius: 0.75rem;
   background-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -10,11 +10,10 @@
   transition: all 0.25s ease;
   overflow: hidden;
 }
-
 .quarto-post:hover {
-  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 8px 24px rgba(232, 99, 31, 0.18);   /* orange-tinted glow */
   transform: translateY(-3px);
-  border-color: #3b82f6;
+  border-color: var(--bs-primary);
 }
 
 /* Breathing room for the card body */
@@ -22,13 +21,21 @@
   padding: 1.5rem;
 }
 
+/* Card titles pick up the site's display font */
+.quarto-post .body h3,
+.quarto-post .listing-title {
+  font-family: "Barlow Condensed", "Archivo Narrow", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
 /* Thumbnail separator */
 .quarto-post .thumbnail {
   margin: 0;
-  border-bottom: none;                     /* remove separator */
-  position: relative; 
+  border-bottom: none;
+  position: relative;
 }
-
 .quarto-post .thumbnail img {
   width: 100%;
   height: 100%;
@@ -40,12 +47,9 @@
 .quarto-post {
   cursor: pointer;
 }
-
-/* Stretch the thumbnail link over the entire card */
 .quarto-post > .thumbnail > a {
   position: static;
 }
-
 .quarto-post > .thumbnail > a::after {
   content: "";
   position: absolute;
@@ -63,15 +67,17 @@
   z-index: 2;
 }
 
-/* ── Wider, more readable metadata ── */
+/* ── Wider, more readable metadata — date in mono, matches stat styling ── */
 .quarto-post .metadata {
-  padding: 0.75rem 0.5rem 1rem;      /* more top padding, keep side padding */
-  font-size: 1rem;                  /* slightly larger */
-  color: #6c757d;
+  padding: 0.75rem 0.5rem 1rem;
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  color: #55606B;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;                     /* more space between date and author */
+  gap: 1rem;
 }
 
 /* ── Logo spacing on homepage ── */
@@ -81,8 +87,9 @@ img[src*="logo"] {
 
 /* ── Blog post dates ── */
 .listing-date {
-  color: #6c757d;
-  font-size: 0.9rem;
+  font-family: "IBM Plex Mono", monospace;
+  color: #55606B;
+  font-size: 0.85rem;
 }
 
 /* ── Mobile readability ── */
@@ -99,27 +106,23 @@ body {
 
 /* 🌙 Dark mode overrides (body gets class "quarto-dark") */
 body.quarto-dark .quarto-post {
-  background-color: #1e1e2f;           /* dark card background */
-  border-color: #3a3a4a;               /* softer border */
-  border-left-color: #3b82f6;          /* keep accent visible */
+  background-color: #171E27;           /* matches dark theme card-bg */
+  border-color: #2A323C;               /* matches dark theme border token */
+  border-left-color: var(--bs-primary);/* stays visible — brighter orange in dark mode */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
 body.quarto-dark .quarto-post:hover {
-  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
-  border-color: #3b82f6;
+  box-shadow: 0 8px 24px rgba(232, 99, 31, 0.22);
+  border-color: var(--bs-primary);
 }
-
 body.quarto-dark .quarto-post .thumbnail {
   border-bottom-color: none;
 }
-
 body.quarto-dark .quarto-post .metadata,
 body.quarto-dark .quarto-post .listing-date {
-  color: #a0a0b0;
+  color: #9AA4AE;
 }
-
 body.quarto-dark .quarto-post .listing-description,
 body.quarto-dark .quarto-post .listing-subtitle {
-  color: #c0c0d0;
+  color: #C7CCD1;
 }
