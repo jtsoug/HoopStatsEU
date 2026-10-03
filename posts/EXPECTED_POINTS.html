@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Giannis Tsougkrianis">
+<meta name="dcterms.date" content="2026-10-03">
+
+<title>Points Over Expected: A Fair Price for Every Shot – HoopStatsEU</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d179bf589c4e29b1b2e57f8a192d7fea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-dc31bf1ca1a93c448f2b65e34885bab8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d179bf589c4e29b1b2e57f8a192d7fea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="google-site-verification" content="0fyb4Ve6VDdV8S9j-RkVfE5BjZh8QTGtUb94bWK-x4I">
+<script data-goatcounter="https://hoopstatseu.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Source+Sans+3:wght@400;600&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Points Over Expected: A Fair Price for Every Shot – HoopStatsEU">
+<meta property="og:description" content="European basketball analytics — EuroLeague lineup data, assist networks, and advanced statistics.">
+<meta property="og:image" content="https://jtsoug.github.io/HoopStatsEU//images/xpoints.jpg">
+<meta property="og:site_name" content="HoopStatsEU">
+<meta name="twitter:title" content="Points Over Expected: A Fair Price for Every Shot – HoopStatsEU">
+<meta name="twitter:description" content="European basketball analytics — EuroLeague lineup data, assist networks, and advanced statistics.">
+<meta name="twitter:image" content="https://jtsoug.github.io/HoopStatsEU//images/xpoints.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/logo.png" alt="" class="navbar-logo light-content">
+    <img src="../images/logo.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">HoopStatsEU</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/HoopStatsEU"> <i class="bi bi-twitter-x" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jtsoug/HoopStatsEU"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#a-fair-price-for-every-shot" id="toc-a-fair-price-for-every-shot" class="nav-link active" data-scroll-target="#a-fair-price-for-every-shot">A fair price for every shot</a>
+  <ul class="collapse">
+  <li><a href="#how-the-price-is-set" id="toc-how-the-price-is-set" class="nav-link" data-scroll-target="#how-the-price-is-set">How the price is set</a></li>
+  <li><a href="#the-shooting-zones" id="toc-the-shooting-zones" class="nav-link" data-scroll-target="#the-shooting-zones">The Shooting zones</a></li>
+  </ul></li>
+  <li><a href="#example-1-streaks-one-cold-one-hot" id="toc-example-1-streaks-one-cold-one-hot" class="nav-link" data-scroll-target="#example-1-streaks-one-cold-one-hot">Example 1 — Streaks: one cold, one hot</a>
+  <ul class="collapse">
+  <li><a href="#the-cold-stretch-tyler-dorsey" id="toc-the-cold-stretch-tyler-dorsey" class="nav-link" data-scroll-target="#the-cold-stretch-tyler-dorsey">The cold stretch: Tyler Dorsey</a></li>
+  <li><a href="#the-hot-stretch-devon-hall-hot-when-it-mattered-the-most" id="toc-the-hot-stretch-devon-hall-hot-when-it-mattered-the-most" class="nav-link" data-scroll-target="#the-hot-stretch-devon-hall-hot-when-it-mattered-the-most">The hot stretch: Devon Hall, hot when it mattered the most!</a></li>
+  </ul></li>
+  <li><a href="#example-2-kendrick-nunn-a-rookie-season-shot-by-shot" id="toc-example-2-kendrick-nunn-a-rookie-season-shot-by-shot" class="nav-link" data-scroll-target="#example-2-kendrick-nunn-a-rookie-season-shot-by-shot">Example 2 — Kendrick Nunn: a rookie season, shot by shot</a></li>
+  <li><a href="#example-3-shooting-bigs-vs-non-shooting-bigs-wright-and-tavares" id="toc-example-3-shooting-bigs-vs-non-shooting-bigs-wright-and-tavares" class="nav-link" data-scroll-target="#example-3-shooting-bigs-vs-non-shooting-bigs-wright-and-tavares">Example 3 — Shooting bigs vs non-shooting bigs: Wright and Tavares</a></li>
+  <li><a href="#example-4-the-best-and-worst-nights-in-euroleague-history" id="toc-example-4-the-best-and-worst-nights-in-euroleague-history" class="nav-link" data-scroll-target="#example-4-the-best-and-worst-nights-in-euroleague-history">Example 4 — The best and worst nights in EuroLeague history</a>
+  <ul class="collapse">
+  <li><a href="#the-five-hottest" id="toc-the-five-hottest" class="nav-link" data-scroll-target="#the-five-hottest">The five hottest</a></li>
+  <li><a href="#the-five-coldest" id="toc-the-five-coldest" class="nav-link" data-scroll-target="#the-five-coldest">The five coldest</a></li>
+  </ul></li>
+  <li><a href="#example-5-when-the-scoreboard-lies" id="toc-example-5-when-the-scoreboard-lies" class="nav-link" data-scroll-target="#example-5-when-the-scoreboard-lies">Example 5 — When the scoreboard lies</a>
+  <ul class="collapse">
+  <li><a href="#scoring-over-performance-walkup" id="toc-scoring-over-performance-walkup" class="nav-link" data-scroll-target="#scoring-over-performance-walkup">Scoring over-performance: Walkup</a></li>
+  <li><a href="#the-cold-high-scoring-night-hifi" id="toc-the-cold-high-scoring-night-hifi" class="nav-link" data-scroll-target="#the-cold-high-scoring-night-hifi">The cold high-scoring night: Hifi</a></li>
+  </ul></li>
+  <li><a href="#what-the-model-doesnt-see" id="toc-what-the-model-doesnt-see" class="nav-link" data-scroll-target="#what-the-model-doesnt-see">What the model doesn’t see</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Points Over Expected: A Fair Price for Every Shot</h1>
+<p class="subtitle lead">Introducing the HoopStatsEU expected points model</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Giannis Tsougkrianis </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 3, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<figure style="margin: 0 auto 2rem auto; max-width: 100%;" class="figure">
+<p><img src="../images/xpoints.jpg" alt="Expected Points banner" style="width: 100%; height: auto; display: block;" class="figure-img"></p>
+</figure>
+<section id="a-fair-price-for-every-shot" class="level2">
+<h2 class="anchored" data-anchor-id="a-fair-price-for-every-shot">A fair price for every shot</h2>
+<p>When watching a basketball game, the outcome of a shot should not be the criterion for whether it was the <strong>right shot</strong> to be taken. A corner three from a 42% shooter is a completely different possession than a 8-meter prayer from a big who lives in the paint, even if both end up as three points on the scoreboard.</p>
+<p>The <strong>expected points (xPts) model</strong> puts a number on that instinct. Every shot gets a <em>fair price</em>: what it should be worth, given where it was taken and by whom. Add the prices up over a game and you get the points a player <em>should</em> have scored in an average night. The gap between what he actually scored and that fair price is his <strong>Points over Expected (PoE)</strong>:</p>
+<blockquote class="blockquote">
+<p><strong>PoE = actual points − expected points.</strong> A positive value means he finished better than his shot diet and track record said he would; a negative value means he shot poorly.</p>
+</blockquote>
+<section id="how-the-price-is-set" class="level3">
+<h3 class="anchored" data-anchor-id="how-the-price-is-set">How the price is set</h3>
+<p>Think of it as a scouting report that rewrites itself after every game, using only what was known <em>before</em> tip-off:</p>
+<ol type="1">
+<li><strong>Where the shot came from.</strong> The floor is carved into ten shooting zones: paint, restricted area, mid-range, both corners, both elbows, center, long range and very long range, plus the free-throw line, which the model treats as an eleventh zone of its own. Every zone, is priced through the exact same pipeline described below.</li>
+<li><strong>Who’s shooting it.</strong> Each player’s career percentage in that zone sets the baseline.</li>
+<li><strong>No track record? Fall back on position.</strong> A rookie, or a player with zero attempts in a zone, starts from what other players at his position shot there last season.</li>
+<li><strong>Threes aren’t for everyone.</strong> A player who almost never steps out isn’t priced like an average shooter from deep — his number gets dragged toward a low floor (around 15.5%) in proportion to how rarely he actually shoots 3s.</li>
+<li><strong>The hot hand exists.</strong> The last five games nudge the price up or down, so a hot streak moves the number without rewriting who the real player is.</li>
+</ol>
+<p>Multiply each zone’s attempts by that price and by the shot’s value (2 or 3, or 1 from the free-throw line), add it all up, and you’ve got the player’s expected points for the night.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>One thing to keep in mind.</strong> PoE does not take into account shot contest, shot-clock and if the shot was moving or stationary. Just the zone and shooter.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-shooting-zones" class="level3">
+<h3 class="anchored" data-anchor-id="the-shooting-zones">The Shooting zones</h3>
+<div id="fig-zones" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Basketball court divided into the ten HoopStatsEU shooting zones" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-zones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="../images/court_zones.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: The HoopStatsEU shooting zones. Ten zones on the floor, plus the free-throw line."><img src="../images/court_zones.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Basketball court divided into the ten HoopStatsEU shooting zones"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-zones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: <strong>The HoopStatsEU shooting zones.</strong> Ten zones on the floor, plus the free-throw line.
+</figcaption>
+</figure>
+</div>
+<p>Five examples show what the model can and can’t tell us.</p>
+<hr>
+</section>
+</section>
+<section id="example-1-streaks-one-cold-one-hot" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-streaks-one-cold-one-hot">Example 1 — Streaks: one cold, one hot</h2>
+<p>Streaks are where basketball people trust their eyes and distrust the box score. Below, two stretches, game by game. A game counts as <strong>hot</strong> when the player beat his expected points by 3 or more, and <strong>cold</strong> when he fell short by 3 or more.</p>
+<section id="the-cold-stretch-tyler-dorsey" class="level3">
+<h3 class="anchored" data-anchor-id="the-cold-stretch-tyler-dorsey">The cold stretch: Tyler Dorsey</h3>
+<p>Ten games starting 06 January 2026.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="EXPECTED_POINTS_files/figure-html/plot-dorsey-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="EXPECTED_POINTS_files/figure-html/plot-dorsey-1.png" class="img-fluid figure-img" width="1728"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Across these 10 games Dorsey scored <strong>141 points against 155.5 expected</strong>, a difference of <strong>-14.5</strong>. He had 7 cold games and 1 hot, with the longest cold run lasting 4 games. The worst night was at ZALGIRIS on 25 February: 16 points when his shots were worth 20.3 (-4.3).</p>
+</section>
+<section id="the-hot-stretch-devon-hall-hot-when-it-mattered-the-most" class="level3">
+<h3 class="anchored" data-anchor-id="the-hot-stretch-devon-hall-hot-when-it-mattered-the-most">The hot stretch: Devon Hall, hot when it mattered the most!</h3>
+<p>Hall’s final part of the 2024-25 season.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="EXPECTED_POINTS_files/figure-html/plot-hall-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="EXPECTED_POINTS_files/figure-html/plot-hall-1.png" class="img-fluid figure-img" width="1728"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In 10 games, Hall scored <strong>89 points against 68.1 expected (+20.9)</strong>. That’s 4 hot games, and a longest hot run of 2. His best night came vs PANATHINAIKOS on 23 May: 18 points on shots worth 10.3 (+7.7).</p>
+<p>Put the two charts side by side and you have the whole idea. Same model, one player running below his fair price for ten games and another running above it when the lights were brightest.</p>
+<hr>
+</section>
+</section>
+<section id="example-2-kendrick-nunn-a-rookie-season-shot-by-shot" class="level2">
+<h2 class="anchored" data-anchor-id="example-2-kendrick-nunn-a-rookie-season-shot-by-shot">Example 2 — Kendrick Nunn: a rookie season, shot by shot</h2>
+<p>A rookie is the hardest player in the league to price. No EuroLeague résumé means the model starts from what players at his position typically shoot from each zone, then hands the wheel over to his own attempts as they pile up. Here’s Kendrick Nunn’s debut season, 2023-24.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="EXPECTED_POINTS_files/figure-html/plot-nunn-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="EXPECTED_POINTS_files/figure-html/plot-nunn-1.png" class="img-fluid figure-img" width="1728"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Over 35 games Nunn averaged <strong>16.0 points against 15.0 expected</strong>, a season total of <strong>561 actual vs 525 expected (+36)</strong>. The bottom chart breaks that down. His biggest cushion came from <strong>3-pointers</strong> (+39 points above expectation), and the weakest part of his game relative to the model was his <strong>2-pointers</strong> (-8).</p>
+<p>That’s exactly the kind of split a staff wants walking into a film session: not just that a rookie over or under-performed, but <em>which part of his game</em> did it.</p>
+<hr>
+</section>
+<section id="example-3-shooting-bigs-vs-non-shooting-bigs-wright-and-tavares" class="level2">
+<h2 class="anchored" data-anchor-id="example-3-shooting-bigs-vs-non-shooting-bigs-wright-and-tavares">Example 3 — Shooting bigs vs non-shooting bigs: Wright and Tavares</h2>
+<p>Two centers, two very different relationships with the three-point line. Moses Wright has a modest 3-pointer in his repertoire and Walter Tavares is a traditional big man. How does the model price that difference?</p>
+<p>Remember rule 4 from earlier: <strong>a player’s three-point price is tied to how often he actually takes them</strong>. A non-shooter can’t fake his way to a good price by adopting his position average, the model drags him toward the floor. A willing shooter climbs toward his own record. The heat map below shows <strong>expected points per three-point attempt</strong> in each zone, season by season.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="EXPECTED_POINTS_files/figure-html/plot-3pt-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="EXPECTED_POINTS_files/figure-html/plot-3pt-1.png" class="img-fluid figure-img" width="1728"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 16%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">PLAYER_NAME</th>
+<th style="text-align: right;">Seasons</th>
+<th style="text-align: right;">Games</th>
+<th style="text-align: right;">3PA</th>
+<th style="text-align: right;">3PM</th>
+<th style="text-align: right;">3P%</th>
+<th style="text-align: right;">3PA per game</th>
+<th style="text-align: right;">Avg price per 3PA (pts)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">MOSES WRIGHT</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">30.4%</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">0.85</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WALTER TAVARES</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">315</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0%</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.52</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Read the top chart first. Wright’s tiles sit visibly higher than Tavares’s, because a player who actually shoots threes earns a price built from his own record, while a player who almost never does gets priced near the floor (about 15.5% — roughly 0.47 points per attempt). The bottom chart shows exactly why: the volume gap <em>is</em> the price gap.</p>
+<p>For a coach, the takeaway is practical. A way of distinguishing between an occasional shooter and a completely non-shooter.</p>
+<hr>
+</section>
+<section id="example-4-the-best-and-worst-nights-in-euroleague-history" class="level2">
+<h2 class="anchored" data-anchor-id="example-4-the-best-and-worst-nights-in-euroleague-history">Example 4 — The best and worst nights in EuroLeague history</h2>
+<p>Now the extremes. Among every player performance since the model’s coverage begins (EuroLeague 2008-09 onward) with at least 10 career field-goal attempts, which beat their fair price by the most, and which fell the shortest?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="EXPECTED_POINTS_files/figure-html/plot-alltime-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="EXPECTED_POINTS_files/figure-html/plot-alltime-1.png" class="img-fluid figure-img" width="1872"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="the-five-hottest" class="level3">
+<h3 class="anchored" data-anchor-id="the-five-hottest">The five hottest</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 20%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Player</th>
+<th style="text-align: left;">Team</th>
+<th style="text-align: left;">Season</th>
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Game</th>
+<th style="text-align: right;">FGA</th>
+<th style="text-align: right;">PTS</th>
+<th style="text-align: right;">xPTS</th>
+<th style="text-align: right;">PoE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">KENDRICK NUNN</td>
+<td style="text-align: left;">PANATHINAIKOS</td>
+<td style="text-align: left;">2024-25</td>
+<td style="text-align: left;">03 Apr 2025</td>
+<td style="text-align: left;">@ MONACO</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">18.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SASHA VEZENKOV</td>
+<td style="text-align: left;">OLYMPIACOS</td>
+<td style="text-align: left;">2024-25</td>
+<td style="text-align: left;">10 Jan 2025</td>
+<td style="text-align: left;">vs BAYERN MUNICH</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">26.6</td>
+<td style="text-align: right;">18.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ANDREW GOUDELOCK</td>
+<td style="text-align: left;">FENERBAHCE</td>
+<td style="text-align: left;">2014-15</td>
+<td style="text-align: left;">13 Nov 2014</td>
+<td style="text-align: left;">@ BAYERN MUNICH</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">15.7</td>
+<td style="text-align: right;">18.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANDREAS OBST</td>
+<td style="text-align: left;">BAYERN MUNICH</td>
+<td style="text-align: left;">2024-25</td>
+<td style="text-align: left;">22 Nov 2024</td>
+<td style="text-align: left;">vs BARCELONA</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">18.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PJ DOZIER</td>
+<td style="text-align: left;">EFES</td>
+<td style="text-align: left;">2025-26</td>
+<td style="text-align: left;">07 Nov 2025</td>
+<td style="text-align: left;">vs OLIMPIA MILANO</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">17.0</td>
+<td style="text-align: right;">17.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="the-five-coldest" class="level3">
+<h3 class="anchored" data-anchor-id="the-five-coldest">The five coldest</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Player</th>
+<th style="text-align: left;">Team</th>
+<th style="text-align: left;">Season</th>
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Game</th>
+<th style="text-align: right;">FGA</th>
+<th style="text-align: right;">PTS</th>
+<th style="text-align: right;">xPTS</th>
+<th style="text-align: right;">PoE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ISAIAH CANAAN</td>
+<td style="text-align: left;">UNICS</td>
+<td style="text-align: left;">2021-22</td>
+<td style="text-align: left;">02 Feb 2022</td>
+<td style="text-align: left;">@ ALBA BERLIN</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">21.7</td>
+<td style="text-align: right;">-16.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TJ SHORTS</td>
+<td style="text-align: left;">PARIS BASKETBALL</td>
+<td style="text-align: left;">2024-25</td>
+<td style="text-align: left;">01 Nov 2024</td>
+<td style="text-align: left;">vs BASKONIA</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">23.5</td>
+<td style="text-align: right;">-14.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MIKE JAMES</td>
+<td style="text-align: left;">MONACO</td>
+<td style="text-align: left;">2021-22</td>
+<td style="text-align: left;">28 Jan 2022</td>
+<td style="text-align: left;">vs REAL MADRID</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">24.9</td>
+<td style="text-align: right;">-13.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">JARED RHODEN</td>
+<td style="text-align: left;">PARIS BASKETBALL</td>
+<td style="text-align: left;">2025-26</td>
+<td style="text-align: left;">17 Apr 2026</td>
+<td style="text-align: left;">@ ZALGIRIS</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">17.5</td>
+<td style="text-align: right;">-13.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BRAD WANAMAKER</td>
+<td style="text-align: left;">DARUSSAFAKA</td>
+<td style="text-align: left;">2016-17</td>
+<td style="text-align: left;">09 Dec 2016</td>
+<td style="text-align: left;">@ BASKONIA</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">15.9</td>
+<td style="text-align: right;">-12.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The hottest night in the database belongs to <strong>KENDRICK NUNN</strong>, who dropped 37 points on shots worth 18.1 (+18.9). The coldest was <strong>ISAIAH CANAAN</strong>, with 5 against 21.7 (-16.7). Compare those swings to the ordinary ones in Example 1, and you get a feel for how far from normal these nights really are.</p>
+<hr>
+</section>
+</section>
+<section id="example-5-when-the-scoreboard-lies" class="level2">
+<h2 class="anchored" data-anchor-id="example-5-when-the-scoreboard-lies">Example 5 — When the scoreboard lies</h2>
+<p>The all-time lists are dominated by big scoring nights, but PoE has a more interesting use: telling you when a <em>average</em> points total was actually a great shooting night, and when a <em>high</em> points total was a poor one. Two games from the 2025-26 season make the point.</p>
+<section id="scoring-over-performance-walkup" class="level3">
+<h3 class="anchored" data-anchor-id="scoring-over-performance-walkup">Scoring over-performance: Walkup</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="EXPECTED_POINTS_files/figure-html/plot-night-hot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="EXPECTED_POINTS_files/figure-html/plot-night-hot-1.png" class="img-fluid figure-img" width="1728"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>THOMAS WALKUP</strong> finished with <strong>14 points</strong>. The model priced his shots at only <strong>5</strong>, meaning he beat his fair price by <strong>+9.0</strong>. Few looks and he cashed nearly every one.</p>
+</section>
+<section id="the-cold-high-scoring-night-hifi" class="level3">
+<h3 class="anchored" data-anchor-id="the-cold-high-scoring-night-hifi">The cold high-scoring night: Hifi</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="EXPECTED_POINTS_files/figure-html/plot-night-cold-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="EXPECTED_POINTS_files/figure-html/plot-night-cold-1.png" class="img-fluid figure-img" width="1728"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>NADIR HIFI</strong> put up <strong>24 points</strong>. Impressive amount, but his shots were worth <strong>31.6</strong>, so he finished <strong>-7.6</strong> relative to expectation. Volume carried the score; efficiency didn’t</p>
+<p>Two box scores, two completely opposite stories. That’s the whole point of the model: <strong>the scoreboard tells you how many points a player scored; xPts tells you how well he had to shoot to get them.</strong></p>
+<hr>
+</section>
+</section>
+<section id="what-the-model-doesnt-see" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-model-doesnt-see">What the model doesn’t see</h2>
+<p>xPts is a <strong>shot-quality</strong> model, so it has no view of defenders, shot clock, passing, screens, or whether a shot was contested. It credits finishing, not creation. And it only knows what happened in EuroLeague games — so a newcomer’s price starts from his position’s norm, no matter how good his résumé was somewhere else.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Methodology note.</strong> Expected points are computed as</p>
+<p><span class="math display">\[
+\text{Expected Points} = \sum_{z=1}^{11} \left( \text{Attempts}_z \times \text{Expected Conversion Rate}_z \times \text{Shot Value}_z \right)
+\]</span></p>
+<p>where the eleven zones comprise ten shooting zones plus the free-throw zone. Each zone’s expected rate, including free throws, is built from information available <strong>before</strong> that game. The model covers EuroLeague seasons from 2008-09.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jtsoug\.github\.io\/HoopStatsEU\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 HoopStatsEU. Built with Quarto.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
+<script>
+  document.querySelectorAll('.quarto-post').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e) {
+      // Only redirect if the user didn't click an actual link
+      if (!e.target.closest('a')) {
+        const link = card.querySelector('a');
+        if (link) window.location = link.href;
+      }
+    });
+  });
+
+  if (typeof kofiWidgetOverlay !== 'undefined') {
+    kofiWidgetOverlay.draw('hoopstatseu', {
+      'type': 'floating-chat',
+      'floating-chat.donateButton.text': 'Tip Us',
+      'floating-chat.donateButton.background-color': '#00b9fe',
+      'floating-chat.donateButton.text-color': '#fff'
+    });
+  }
+</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
