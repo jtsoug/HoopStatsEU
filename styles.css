@@ -126,3 +126,11 @@ body.quarto-dark .quarto-post .listing-description,
 body.quarto-dark .quarto-post .listing-subtitle {
   color: #C7CCD1;
 }
+
+/* Equations
+
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
